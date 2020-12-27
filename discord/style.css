@@ -1,0 +1,96 @@
+/* reset everything */
+* {
+  margin: 0;
+  padding: 0;
+}
+/* base colors */
+:root{
+    --color-not-quiet-black :  #23272a;
+    --color-dark: #2c2f33;
+    --color-blurple: #3059a5;
+    --color-lighter-dark: #45494e;
+    --color-full-white: #ffffff;
+    --color-actually-black: #000000;
+    --color-fantastic-green: #00ae7a;
+}
+nav{
+    position: fixed;
+    top: 0;
+}
+body{
+    background: var(--color-dark);
+}
+
+.squircles{
+    background: var(--color-not-quiet-black);
+    list-style: none;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    padding: 1rem;
+}
+.sqircle{
+background: var(--color-lighter-dark);
+width: 48px;
+height: 48px;
+border-radius: 50%;
+position: relative;
+}
+.sqircle:hover{
+    border-radius: 40%;
+    cursor: pointer;
+}
+.divider{
+    background: var(--color-full-white);
+    height: 2px;
+    border-radius: 1px;
+    opacity: 0.06;
+    transform: scale(0.75);
+}
+.purple-boi:hover{
+    background: var(--color-blurple);
+}
+.green-boi:hover{
+    background: var(--color-fantastic-green);
+
+}
+/* pills */
+.sqircle::before{
+    position: absolute;
+    content: '';
+    height: 30px;
+    width: 2px;
+    border-radius: 20%;
+    top:50%;
+    transform: translate(-15px,-50%) scale(0.5);
+    background: var(--color-not-quiet-black);
+    /* transform: translateX(; */
+    /* transition: border-radius 128ms, background 128ms; */
+    transition:  background 128ms, transform 128ms;
+    
+}
+.sqircle:hover::before{
+    background: var(--color-full-white);
+    transform:  translate(-15px,-50%) scale(1);
+}
+.sqircle::after{
+    font-family: 'Courier New', Courier, monospace;
+    content:"Tool Tip";
+    position: absolute;
+    padding: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 145%;
+    background: var(--color-actually-black);
+    color: var(--color-full-white);
+    min-width: max-content;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 128ms;
+    
+}
+.sqircle:hover::after{
+    opacity: 1;
+}
+
